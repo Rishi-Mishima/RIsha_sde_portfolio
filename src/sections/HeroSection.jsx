@@ -80,7 +80,7 @@ function HeroSection({ hero, siteMeta, theme }) {
 
       <div className="space-y-4 sm:space-y-5">
         <TerminalWindow
-          title="runtime/profile"
+          title="personal profile"
           className="terminal-glow terminal-fade overflow-hidden"
           contentClassName="space-y-6"
         >

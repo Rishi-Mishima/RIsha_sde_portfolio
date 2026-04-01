@@ -1,8 +1,8 @@
 export const siteMeta = {
   brand: 'risha.dev',
-  location: 'Amsterdam, NL',
-  role: 'Software Development Engineer',
-  email: 'risha@example.com',
+  location: 'The Hague, NL',
+  role: 'Full-Stack Software Development Engineer',
+  email: 'janicerx10@gmail.com',
 }
 
 export const navigation = [
@@ -14,25 +14,31 @@ export const navigation = [
 ]
 
 export const hero = {
-  eyebrow: 'full-stack engineer // systems-minded builder',
-  title: 'Building product systems that stay readable under real production pressure.',
+  eyebrow: 'currently on Search Year Visa / biomedical Engineering background ',
+  title: 'Building product systems under real production pressure.',
   intro:
-    'I design and ship full-stack software with a bias for clean interfaces, measurable outcomes, and infrastructure that does not become the team\'s next problem.',
+    //'I design and ship full-stack software with a bias for clean interfaces, measurable outcomes, and infrastructure that does not become the team\'s next problem.',
+    'I have experience across the stack, working with Java (Spring Boot), Python, and modern front-end frameworks (Vue/React), and have developed projects ranging from RAG-based AI systems to full-featured web platforms',
   commandLines: [
     '$ whoami',
-    'software-engineer --focus platform, product, frontend-architecture',
+    'full-stack software-engineer --focus platform, product, frontend-architecture',
+    '$ education',
+    '🇳🇱 The University of Leiden, Master of Science',
+    '🇦🇺 The University of Sydney, Bachelor of Biomedical Engineering (Honours) and Bachelor of Arts',
     '$ priorities',
     'reliability && delivery-speed && maintainable-systems',
   ],
   labels: [
+    'java',
     'react',
-    'typescript',
+    //'typescript',
     'distributed systems',
     'platform tooling',
     'observability',
   ],
   stats: [
     { label: 'primary mode', value: 'full-stack' },
+    { label: 'languages', value: 'English, Chinese, Japanese (N1)' },
     { label: 'languages', value: 'English, Chinese, Japanese (N1)' },
   ],
 }
