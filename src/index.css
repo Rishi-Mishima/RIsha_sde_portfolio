@@ -132,16 +132,44 @@ select {
 }
 
 @layer components {
-  .theme-toggle {
-    @apply inline-flex items-center gap-3 rounded-full border border-zinc-800/80 bg-black/82 px-3 py-2 text-[10px] uppercase tracking-[0.28em] text-zinc-300 shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-md transition duration-300 hover:border-lime-300/45 hover:text-zinc-100;
+  .theme-switch {
+    @apply inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-zinc-300 transition duration-300;
   }
 
-  .theme-toggle__label {
+  .theme-switch__label {
     @apply text-zinc-500;
   }
 
-  .theme-toggle__state {
-    @apply text-lime-200;
+  .theme-switch__track {
+    @apply relative inline-flex h-7 w-14 items-center rounded-full border border-zinc-700 bg-zinc-900/90 p-1 shadow-[inset_0_1px_2px_rgba(0,0,0,0.55),0_10px_30px_rgba(0,0,0,0.2)] transition-all duration-300;
+  }
+
+  .theme-switch__track.is-on {
+    @apply border-lime-300/60 bg-lime-400/90 shadow-[inset_0_1px_2px_rgba(255,255,255,0.18),0_0_28px_rgba(163,230,53,0.38)];
+  }
+
+  .theme-switch__thumb {
+    @apply flex h-5 w-5 translate-x-0 items-center justify-center rounded-full bg-white text-lime-600 shadow-[0_3px_10px_rgba(0,0,0,0.28)] transition-transform duration-300;
+  }
+
+  .theme-switch__track.is-on .theme-switch__thumb {
+    @apply translate-x-7;
+  }
+
+  .social-link {
+    @apply relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800/90 bg-black/35 text-zinc-400 transition duration-300 hover:-translate-y-0.5 hover:border-lime-300/55 hover:text-lime-200;
+  }
+
+  .social-link::before {
+    content: "";
+    @apply absolute inset-0 rounded-full opacity-0 transition duration-300;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(163, 230, 53, 0.42), transparent 38%),
+      radial-gradient(circle at 70% 72%, rgba(255, 255, 255, 0.18), transparent 44%);
+  }
+
+  .social-link:hover::before {
+    @apply opacity-100;
   }
 
   .terminal-panel {
@@ -206,20 +234,29 @@ select {
   }
 }
 
-body.theme-daylight .theme-toggle {
-  @apply border-stone-300/90 bg-stone-100/92 text-stone-700 shadow-[0_12px_40px_rgba(120,113,108,0.18)];
+body.theme-daylight .theme-switch {
+  @apply text-stone-700;
 }
 
-body.theme-daylight .theme-toggle:hover {
-  @apply border-stone-500/60 text-stone-950;
-}
-
-body.theme-daylight .theme-toggle__label {
+body.theme-daylight .theme-switch__label {
   @apply text-stone-500;
 }
 
-body.theme-daylight .theme-toggle__state {
-  color: #0f766e;
+body.theme-daylight .theme-switch__track {
+  @apply border-stone-300 bg-stone-300/90;
+}
+
+body.theme-daylight .theme-switch__track.is-on {
+  background: linear-gradient(135deg, #bef264, #4ade80);
+  border-color: rgba(34, 197, 94, 0.45);
+}
+
+body.theme-daylight .theme-switch__thumb {
+  @apply text-amber-500;
+}
+
+body.theme-daylight .social-link {
+  @apply border-stone-300/90 bg-white/78 text-stone-500 hover:border-emerald-600/45 hover:text-emerald-700;
 }
 
 body.theme-daylight .terminal-panel {
@@ -252,6 +289,12 @@ body.theme-daylight .ascii-rule {
 
 body.theme-daylight .ascii-rule .bg-gradient-to-r {
   background-image: linear-gradient(to right, rgba(168, 162, 158, 0.85), rgba(214, 211, 209, 0.7), transparent);
+}
+
+body.theme-daylight .social-link::before {
+  background:
+    radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.22), transparent 38%),
+    radial-gradient(circle at 72% 72%, rgba(250, 204, 21, 0.16), transparent 44%);
 }
 
 body.theme-daylight [class*='bg-black/'],

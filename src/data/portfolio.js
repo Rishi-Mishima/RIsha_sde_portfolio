@@ -1,6 +1,5 @@
 export const siteMeta = {
   brand: 'risha.dev',
-  availability: 'open_to_work = selective',
   location: 'Amsterdam, NL',
   role: 'Software Development Engineer',
   email: 'risha@example.com',
@@ -15,7 +14,7 @@ export const navigation = [
 ]
 
 export const hero = {
-  eyebrow: 'terminal://portfolio/boot',
+  eyebrow: 'full-stack engineer // systems-minded builder',
   title: 'Building product systems that stay readable under real production pressure.',
   intro:
     'I design and ship full-stack software with a bias for clean interfaces, measurable outcomes, and infrastructure that does not become the team\'s next problem.',
@@ -33,10 +32,8 @@ export const hero = {
     'observability',
   ],
   stats: [
-    { label: 'production systems', value: '12+' },
-    { label: 'release cadence', value: 'weekly' },
     { label: 'primary mode', value: 'full-stack' },
-    { label: 'working style', value: 'calm / rigorous' },
+    { label: 'languages', value: 'English, Chinese, Japanese (N1)' },
   ],
 }
 
