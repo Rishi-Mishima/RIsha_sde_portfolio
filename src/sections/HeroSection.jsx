@@ -1,7 +1,32 @@
+import { useEffect, useState } from 'react'
 import AsciiDivider from '../components/AsciiDivider'
 import TerminalWindow from '../components/TerminalWindow'
 
-function HeroSection({ hero, siteMeta }) {
+function HeroSection({ hero, siteMeta, theme }) {
+  const isDaylight = theme === 'daylight'
+  const [typedTitle, setTypedTitle] = useState(() => (isDaylight ? '' : hero.title))
+
+  useEffect(() => {
+    if (!isDaylight) {
+      setTypedTitle(hero.title)
+      return
+    }
+
+    setTypedTitle('')
+
+    let frame = 0
+    const timer = window.setInterval(() => {
+      frame += 1
+      setTypedTitle(hero.title.slice(0, frame))
+
+      if (frame >= hero.title.length) {
+        window.clearInterval(timer)
+      }
+    }, 36)
+
+    return () => window.clearInterval(timer)
+  }, [hero.title, isDaylight])
+
   return (
     <section className="grid gap-10 py-10 sm:gap-12 sm:py-14 lg:grid-cols-[minmax(0,1.35fr)_400px] lg:gap-14 lg:py-18">
       <div className="space-y-8 sm:space-y-10">
@@ -12,8 +37,10 @@ function HeroSection({ hero, siteMeta }) {
 
         <div className="space-y-6">
           <p className="text-[11px] uppercase tracking-[0.36em] text-zinc-500">{hero.eyebrow}</p>
-          <h1 className="display-title max-w-5xl text-5xl leading-[0.95] sm:text-7xl lg:text-[5.4rem]">
-            {hero.title}
+          <h1
+            className={`display-title max-w-5xl text-5xl leading-[0.95] sm:text-7xl lg:text-[5.4rem] ${isDaylight ? 'hero-title-daylight typewriter-caret' : ''}`}
+          >
+            {isDaylight ? typedTitle : hero.title}
           </h1>
           <p className="max-w-2xl text-base leading-8 text-zinc-400 sm:text-lg sm:leading-9">
             {hero.intro}

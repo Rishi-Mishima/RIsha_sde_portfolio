@@ -23,6 +23,9 @@ body {
     radial-gradient(circle at 18% 0%, rgba(163, 230, 53, 0.1), transparent 22%),
     radial-gradient(circle at 82% 15%, rgba(255, 255, 255, 0.05), transparent 24%),
     linear-gradient(180deg, #060606 0%, #030303 42%, #000000 100%);
+  transition:
+    background 420ms ease,
+    color 320ms ease;
 }
 
 body::before {
@@ -36,6 +39,26 @@ body::before {
   background-size: 100% 4px, 56px 100%;
   mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0.55), transparent 70%);
   opacity: 0.14;
+  transition:
+    background-image 420ms ease,
+    opacity 320ms ease,
+    mask-image 320ms ease;
+}
+
+body.theme-daylight {
+  color: #111827;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(59, 130, 246, 0.1), transparent 22%),
+    radial-gradient(circle at 82% 15%, rgba(255, 255, 255, 0.64), transparent 24%),
+    linear-gradient(180deg, #f7f6f2 0%, #efebe2 44%, #e5ded1 100%);
+}
+
+body.theme-daylight::before {
+  background-image:
+    linear-gradient(rgba(17, 24, 39, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 24, 39, 0.04) 1px, transparent 1px);
+  mask-image: linear-gradient(180deg, rgba(17, 24, 39, 0.34), transparent 72%);
+  opacity: 0.28;
 }
 
 a {
@@ -58,6 +81,7 @@ select {
 @theme {
   --animate-terminal-fade: terminal-fade 720ms ease-out both;
   --animate-terminal-glow: terminal-glow 5.2s ease-in-out infinite;
+  --animate-caret-blink: caret-blink 1s steps(1) infinite;
   --color-terminal-accent: #a3e635;
 }
 
@@ -89,6 +113,18 @@ select {
   }
 }
 
+@keyframes caret-blink {
+  0%,
+  49% {
+    border-color: currentColor;
+  }
+
+  50%,
+  100% {
+    border-color: transparent;
+  }
+}
+
 @layer base {
   #root {
     min-height: 100vh;
@@ -96,6 +132,18 @@ select {
 }
 
 @layer components {
+  .theme-toggle {
+    @apply inline-flex items-center gap-3 rounded-full border border-zinc-800/80 bg-black/82 px-3 py-2 text-[10px] uppercase tracking-[0.28em] text-zinc-300 shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-md transition duration-300 hover:border-lime-300/45 hover:text-zinc-100;
+  }
+
+  .theme-toggle__label {
+    @apply text-zinc-500;
+  }
+
+  .theme-toggle__state {
+    @apply text-lime-200;
+  }
+
   .terminal-panel {
     @apply rounded-[2rem] border border-zinc-900/90 bg-zinc-950/58 shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_34px_120px_rgba(0,0,0,0.5)] backdrop-blur-md;
   }
@@ -148,4 +196,109 @@ select {
   .ascii-rule {
     @apply overflow-hidden font-mono text-[10px] uppercase tracking-[0.36em] text-zinc-600 sm:text-xs;
   }
+
+  .typewriter-caret {
+    @apply inline-block border-r-2 border-current pr-2 animate-caret-blink;
+  }
+
+  .hero-title-daylight {
+    color: #09090b !important;
+  }
+}
+
+body.theme-daylight .theme-toggle {
+  @apply border-stone-300/90 bg-stone-100/92 text-stone-700 shadow-[0_12px_40px_rgba(120,113,108,0.18)];
+}
+
+body.theme-daylight .theme-toggle:hover {
+  @apply border-stone-500/60 text-stone-950;
+}
+
+body.theme-daylight .theme-toggle__label {
+  @apply text-stone-500;
+}
+
+body.theme-daylight .theme-toggle__state {
+  color: #0f766e;
+}
+
+body.theme-daylight .terminal-panel {
+  @apply border-stone-300/90 bg-stone-50/72 shadow-[0_0_0_1px_rgba(255,255,255,0.55),0_24px_90px_rgba(120,113,108,0.18)];
+}
+
+body.theme-daylight .terminal-window {
+  @apply border-stone-300/90 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(241,237,229,0.94))] shadow-[0_20px_60px_rgba(120,113,108,0.14)];
+}
+
+body.theme-daylight .terminal-card {
+  @apply border-stone-300/80 bg-white/75 shadow-[0_18px_60px_rgba(120,113,108,0.12)];
+}
+
+body.theme-daylight .terminal-link {
+  @apply border-emerald-700/30 bg-emerald-700/8 text-emerald-900 hover:border-emerald-700/50 hover:bg-emerald-700/12;
+}
+
+body.theme-daylight .terminal-link.muted {
+  @apply border-stone-300 bg-white/85 text-stone-700 hover:border-stone-400 hover:bg-stone-100;
+}
+
+body.theme-daylight .section-shell::before {
+  @apply via-stone-300;
+}
+
+body.theme-daylight .ascii-rule {
+  @apply text-stone-500;
+}
+
+body.theme-daylight .ascii-rule .bg-gradient-to-r {
+  background-image: linear-gradient(to right, rgba(168, 162, 158, 0.85), rgba(214, 211, 209, 0.7), transparent);
+}
+
+body.theme-daylight [class*='bg-black/'],
+body.theme-daylight [class*='bg-zinc-950/'] {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+}
+
+body.theme-daylight [class*='border-zinc-900'],
+body.theme-daylight [class*='border-zinc-800'] {
+  border-color: rgba(214, 211, 209, 0.95) !important;
+}
+
+body.theme-daylight [class*='text-zinc-50'],
+body.theme-daylight [class*='text-zinc-100'] {
+  color: #111827 !important;
+}
+
+body.theme-daylight [class*='text-zinc-200'],
+body.theme-daylight [class*='text-zinc-300'] {
+  color: #1f2937 !important;
+}
+
+body.theme-daylight [class*='text-zinc-400'] {
+  color: #4b5563 !important;
+}
+
+body.theme-daylight [class*='text-zinc-500'],
+body.theme-daylight [class*='text-zinc-600'],
+body.theme-daylight [class*='text-zinc-700'] {
+  color: #6b7280 !important;
+}
+
+body.theme-daylight [class*='bg-lime-300/'],
+body.theme-daylight [class*='text-lime-200'],
+body.theme-daylight [class*='text-lime-300/'] {
+  color: #0f766e !important;
+}
+
+body.theme-daylight [class*='border-lime-300/'] {
+  border-color: rgba(15, 118, 110, 0.22) !important;
+}
+
+body.theme-daylight [class*='bg-lime-300/'] {
+  background-color: rgba(15, 118, 110, 0.08) !important;
+}
+
+body.theme-daylight ::selection {
+  background: rgba(15, 118, 110, 0.16);
+  color: #111827;
 }

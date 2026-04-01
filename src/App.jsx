@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import {
   about,
   contacts,
@@ -17,9 +18,28 @@ import ProjectsSection from './sections/ProjectsSection'
 import SkillsSection from './sections/SkillsSection'
 import AboutSection from './sections/AboutSection'
 
+const THEME_STORAGE_KEY = 'portfolio-theme'
+
 function App() {
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === 'undefined') {
+      return 'terminal'
+    }
+
+    return window.localStorage.getItem(THEME_STORAGE_KEY) ?? 'terminal'
+  })
+
+  useEffect(() => {
+    document.body.classList.toggle('theme-daylight', theme === 'daylight')
+    window.localStorage.setItem(THEME_STORAGE_KEY, theme)
+  }, [theme])
+
+  const isDaylight = theme === 'daylight'
+
   return (
-    <div className="min-h-screen bg-black text-zinc-100">
+    <div
+      className={`min-h-screen transition-colors duration-500 ${isDaylight ? 'bg-stone-100 text-stone-950' : 'bg-black text-zinc-100'}`}
+    >
       <div className="mx-auto flex min-h-screen w-full max-w-[88rem] flex-col px-4 pb-10 pt-4 sm:px-8 sm:pt-6 lg:px-12">
         <header className="sticky top-0 z-30 -mx-4 mb-6 border-b border-zinc-900/75 bg-black/78 px-4 py-4 backdrop-blur-xl sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12">
           <div className="mx-auto flex max-w-[82rem] flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
@@ -30,13 +50,26 @@ function App() {
               </span>
             </div>
 
-            <nav className="flex flex-wrap gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.3em] text-zinc-500">
-              {navigation.map((item) => (
-                <a key={item.href} href={item.href} className="transition hover:text-zinc-100">
-                  {item.label}
-                </a>
-              ))}
-            </nav>
+            <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-5">
+              <button
+                type="button"
+                aria-pressed={isDaylight}
+                aria-label={`Switch to ${isDaylight ? 'terminal' : 'daylight'} mode`}
+                className="theme-toggle self-start"
+                onClick={() => setTheme(isDaylight ? 'terminal' : 'daylight')}
+              >
+                <span className="theme-toggle__label">theme</span>
+                <span className="theme-toggle__state">{isDaylight ? 'daylight' : 'terminal'}</span>
+              </button>
+
+              <nav className="flex flex-wrap gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.3em] text-zinc-500">
+                {navigation.map((item) => (
+                  <a key={item.href} href={item.href} className="transition hover:text-zinc-100">
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
 
             <div className="hidden text-[11px] uppercase tracking-[0.3em] text-zinc-500 lg:block">
               {siteMeta.location}
@@ -52,7 +85,7 @@ function App() {
             </div>
 
             <div className="px-5 sm:px-7 lg:px-10">
-              <HeroSection hero={hero} siteMeta={siteMeta} />
+              <HeroSection hero={hero} siteMeta={siteMeta} theme={theme} />
 
               <div className="space-y-0">
                 <AboutSection about={about} />
