@@ -10,6 +10,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --cursor-x: 50vw;
+  --cursor-y: 30vh;
+  --scroll-progress: 0;
 }
 
 html {
@@ -132,6 +135,75 @@ select {
 }
 
 @layer components {
+  .app-shell {
+    @apply relative isolate overflow-hidden;
+  }
+
+  .global-effects {
+    @apply pointer-events-none fixed inset-0 z-0 overflow-hidden transition-opacity duration-500;
+  }
+
+  .global-effects.is-daylight {
+    opacity: 0.16;
+  }
+
+  .scroll-fireworks {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: calc(0.18 + (var(--scroll-progress) * 0.22));
+  }
+
+  .scroll-fireworks__line {
+    fill: none;
+    stroke: rgba(132, 204, 22, 0.28);
+    stroke-linecap: round;
+    stroke-width: 0.75;
+    stroke-dasharray: 10 18 140;
+    filter: drop-shadow(0 0 10px rgba(163, 230, 53, 0.18));
+    transform-box: fill-box;
+    transform-origin: center top;
+    transition:
+      stroke 320ms ease,
+      opacity 320ms ease;
+  }
+
+  .scroll-fireworks__line--left {
+    transform: translateY(calc(var(--scroll-progress) * 28vh)) rotate(calc(var(--scroll-progress) * 8deg));
+  }
+
+  .scroll-fireworks__line--right {
+    transform: translateY(calc(var(--scroll-progress) * 34vh)) rotate(calc(var(--scroll-progress) * -8deg));
+  }
+
+  .mouse-aura {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle, rgba(163, 230, 53, 0.14) 0%, rgba(163, 230, 53, 0.06) 28%, transparent 72%);
+    transform: translate(calc(var(--cursor-x) - 50%), calc(var(--cursor-y) - 50%));
+    opacity: 0.72;
+    transition: opacity 240ms ease;
+  }
+
+  .mouse-core {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(163, 230, 53, 0.7);
+    box-shadow: 0 0 20px rgba(163, 230, 53, 0.22);
+    transform: translate(calc(var(--cursor-x) - 50%), calc(var(--cursor-y) - 50%));
+    opacity: 0.6;
+  }
+
   .theme-switch {
     @apply inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-zinc-300 transition duration-300;
   }
@@ -210,7 +282,7 @@ select {
   }
 
   .section-kicker {
-    @apply text-[11px] uppercase tracking-[0.34em] text-lime-300/76;
+    @apply text-[11px] font-semibold uppercase tracking-[0.34em] text-emerald-400;
   }
 
   .section-body {
@@ -231,6 +303,30 @@ select {
 
   .hero-title-daylight {
     color: #09090b !important;
+  }
+
+  .hero-shell {
+    position: relative;
+  }
+
+  .hero-shell::before {
+    content: "";
+    position: absolute;
+    inset: 12% 0 auto auto;
+    width: min(32rem, 54vw);
+    height: min(32rem, 54vw);
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle, rgba(163, 230, 53, 0.08) 0%, rgba(163, 230, 53, 0.02) 34%, transparent 72%);
+    filter: blur(12px);
+    opacity: 0.85;
+  }
+
+  .profile-image-shell {
+    background:
+      linear-gradient(180deg, rgba(8, 8, 8, 0.1), rgba(0, 0, 0, 0.46)),
+      radial-gradient(circle at 24% 18%, rgba(163, 230, 53, 0.14), transparent 28%),
+      linear-gradient(135deg, rgba(18, 18, 18, 0.98), rgba(6, 6, 6, 0.96));
   }
 }
 
@@ -257,6 +353,48 @@ body.theme-daylight .theme-switch__thumb {
 
 body.theme-daylight .social-link {
   @apply border-stone-300/90 bg-white/78 text-stone-500 hover:border-emerald-600/45 hover:text-emerald-700;
+}
+
+body.theme-daylight .scroll-fireworks__line {
+  stroke: rgba(37, 99, 235, 0.2);
+}
+
+body.theme-daylight .mouse-aura {
+  background:
+    radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.04) 28%, transparent 72%);
+}
+
+body.theme-daylight .mouse-core {
+  border-color: rgba(59, 130, 246, 0.52);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+@media (max-width: 767px) {
+  .mouse-aura,
+  .mouse-core {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .scroll-fireworks,
+  .mouse-aura,
+  .mouse-core,
+  .terminal-glow,
+  .terminal-fade,
+  .typewriter-caret {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .scroll-fireworks__line--left,
+  .scroll-fireworks__line--right {
+    transform: none;
+  }
 }
 
 body.theme-daylight .terminal-panel {

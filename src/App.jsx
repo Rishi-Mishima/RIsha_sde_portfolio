@@ -54,10 +54,10 @@ const socialLinks = [
 function App() {
   const [theme, setTheme] = useState(() => {
     if (typeof window === 'undefined') {
-      return 'daylight'
+      return 'terminal'
     }
 
-    return window.localStorage.getItem(THEME_STORAGE_KEY) ?? 'daylight'
+    return window.localStorage.getItem(THEME_STORAGE_KEY) ?? 'terminal'
   })
 
   useEffect(() => {
@@ -65,12 +65,84 @@ function App() {
     window.localStorage.setItem(THEME_STORAGE_KEY, theme)
   }, [theme])
 
+  useEffect(() => {
+    const root = document.documentElement
+    let pointerFrame = 0
+    let scrollFrame = 0
+
+    const updatePointer = (x, y) => {
+      root.style.setProperty('--cursor-x', `${x}px`)
+      root.style.setProperty('--cursor-y', `${y}px`)
+    }
+
+    const updateScroll = () => {
+      const maxScroll = Math.max(
+        document.documentElement.scrollHeight - window.innerHeight,
+        1,
+      )
+      const progress = Math.min(window.scrollY / maxScroll, 1)
+      root.style.setProperty('--scroll-progress', progress.toFixed(4))
+    }
+
+    const handlePointerMove = (event) => {
+      if (pointerFrame) {
+        window.cancelAnimationFrame(pointerFrame)
+      }
+
+      pointerFrame = window.requestAnimationFrame(() => {
+        updatePointer(event.clientX, event.clientY)
+      })
+    }
+
+    const handleScroll = () => {
+      if (scrollFrame) {
+        window.cancelAnimationFrame(scrollFrame)
+      }
+
+      scrollFrame = window.requestAnimationFrame(updateScroll)
+    }
+
+    updatePointer(window.innerWidth * 0.5, window.innerHeight * 0.3)
+    updateScroll()
+
+    window.addEventListener('pointermove', handlePointerMove, { passive: true })
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleScroll)
+
+    return () => {
+      if (pointerFrame) {
+        window.cancelAnimationFrame(pointerFrame)
+      }
+      if (scrollFrame) {
+        window.cancelAnimationFrame(scrollFrame)
+      }
+      window.removeEventListener('pointermove', handlePointerMove)
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
+  }, [])
+
   const isDaylight = theme === 'daylight'
 
   return (
     <div
-      className={`min-h-screen transition-colors duration-500 ${isDaylight ? 'bg-stone-100 text-stone-950' : 'bg-black text-zinc-100'}`}
+      className={`app-shell min-h-screen transition-colors duration-500 ${isDaylight ? 'bg-stone-100 text-stone-950' : 'bg-black text-zinc-100'}`}
     >
+      <div aria-hidden="true" className={`global-effects ${isDaylight ? 'is-daylight' : ''}`}>
+        <svg className="scroll-fireworks" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path
+            className="scroll-fireworks__line scroll-fireworks__line--left"
+            d="M14 0 C 6 18, 8 38, 23 55 S 43 86, 31 100"
+          />
+          <path
+            className="scroll-fireworks__line scroll-fireworks__line--right"
+            d="M86 0 C 94 18, 92 38, 77 55 S 57 86, 69 100"
+          />
+        </svg>
+        <div className="mouse-aura" />
+        <div className="mouse-core" />
+      </div>
+
       <div className="mx-auto flex min-h-screen w-full max-w-[88rem] flex-col px-4 pb-10 pt-4 sm:px-8 sm:pt-6 lg:px-12">
         <header className="sticky top-0 z-30 -mx-4 mb-6 border-b border-zinc-900/75 bg-black/78 px-4 py-4 backdrop-blur-xl sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12">
           <div className="mx-auto flex max-w-[82rem] flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
@@ -140,7 +212,7 @@ function App() {
               <HeroSection hero={hero} siteMeta={siteMeta} theme={theme} />
 
               <div className="space-y-0">
-                <AboutSection about={about} />
+                <AboutSection about={about} hero={hero} />
                 <SkillsSection skills={skills} />
                 <ProjectsSection projects={projects} />
                 <ExperienceSection experience={experience} />
