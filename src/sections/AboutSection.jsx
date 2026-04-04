@@ -6,10 +6,15 @@ import AsciiDivider from '../components/AsciiDivider'
 function AboutSection({ about, hero }) {
   return (
     <section id="about" className="section-shell space-y-10 sm:space-y-12">
-      <SectionHeading index={1} title="About" subtitle={about.summary} note="profile" />
+      <SectionHeading
+        index={1}
+        title="About"
+        subtitle={about.summary}
+        subtitleClassName="about-quote max-w-none text-center lg:max-w-[28rem]"
+      />
 
       <div className="grid gap-6 lg:grid-cols-[minmax(280px,0.78fr)_minmax(0,1.22fr)] lg:gap-8">
-        <div className="grid gap-5">
+        <div>
           <div className="terminal-card overflow-hidden p-3 sm:p-4">
             <div className="relative overflow-hidden rounded-[1.35rem] border border-zinc-900/90 bg-zinc-950">
               <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between border-b border-zinc-900/90 bg-black/72 px-4 py-3 text-[10px] uppercase tracking-[0.32em] text-zinc-500">
@@ -24,16 +29,6 @@ function AboutSection({ about, hero }) {
                 />
               </div>
             </div>
-          </div>
-
-          <div className="terminal-card p-6 sm:p-7">
-            <p className="mb-4 text-[11px] uppercase tracking-[0.32em] text-zinc-500">
-              engineering posture
-            </p>
-            <p className="section-body">
-              I favor product interfaces that feel controlled and quiet, backed by systems that are
-              instrumented well enough to survive messy reality.
-            </p>
           </div>
         </div>
 
@@ -64,14 +59,6 @@ function AboutSection({ about, hero }) {
                   </p>
                   <p className="text-lg font-semibold text-zinc-100">{stat.value}</p>
                 </div>
-              ))}
-            </div>
-          </TerminalWindow>
-
-          <TerminalWindow title="about/me">
-            <div className="space-y-6 text-sm leading-8 text-zinc-300 sm:text-base">
-              {about.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
           </TerminalWindow>

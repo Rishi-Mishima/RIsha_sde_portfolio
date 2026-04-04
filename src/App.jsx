@@ -144,8 +144,8 @@ function App() {
       </div>
 
       <div className="mx-auto flex min-h-screen w-full max-w-[88rem] flex-col px-4 pb-10 pt-4 sm:px-8 sm:pt-6 lg:px-12">
-        <header className="sticky top-0 z-30 -mx-4 mb-6 border-b border-zinc-900/75 bg-black/78 px-4 py-4 backdrop-blur-xl sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12">
-          <div className="mx-auto flex max-w-[82rem] flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <header className="sticky top-3 z-40 mb-6 sm:top-4">
+          <div className="header-glass mx-auto flex max-w-[82rem] flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
             <div className="flex items-center justify-between gap-4 text-[11px] uppercase tracking-[0.3em] text-zinc-500">
               <span className="text-zinc-300">{siteMeta.brand}</span>
               <button
@@ -221,7 +221,6 @@ function App() {
             </div>
           </div>
 
-          <AsciiDivider className="px-2 pt-8" label="end of output" />
         </main>
 
         <Footer siteMeta={siteMeta} />

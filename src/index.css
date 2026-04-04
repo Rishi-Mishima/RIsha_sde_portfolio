@@ -147,6 +147,10 @@ select {
     opacity: 0.16;
   }
 
+  .header-glass {
+    @apply rounded-[1.6rem] border border-white/8 bg-black/40 shadow-[0_18px_60px_rgba(0,0,0,0.38),inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-2xl;
+  }
+
   .scroll-fireworks {
     position: absolute;
     inset: 0;
@@ -278,7 +282,30 @@ select {
 
   .section-shell::before {
     content: "";
-    @apply pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent opacity-80;
+    position: absolute;
+    inset: 0 0 auto;
+    height: 1px;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        rgba(163, 230, 53, 0.34) 0 12px,
+        transparent 12px 20px
+      );
+    opacity: 0.6;
+    mask-image: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+  }
+
+  .section-shell::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 5.5rem;
+    height: 5px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, rgba(163, 230, 53, 0.9), rgba(163, 230, 53, 0.12));
+    box-shadow: 0 0 22px rgba(163, 230, 53, 0.2);
+    opacity: 0.72;
   }
 
   .section-kicker {
@@ -328,6 +355,73 @@ select {
       radial-gradient(circle at 24% 18%, rgba(163, 230, 53, 0.14), transparent 28%),
       linear-gradient(135deg, rgba(18, 18, 18, 0.98), rgba(6, 6, 6, 0.96));
   }
+
+  .hero-status-block {
+    @apply rounded-[1.2rem] border border-zinc-900/90 bg-black/38 px-4 py-4;
+  }
+
+  .hero-action {
+    @apply relative overflow-hidden rounded-[1.5rem] border border-zinc-900/90 bg-[linear-gradient(180deg,rgba(12,12,12,0.96),rgba(6,6,6,0.88))] px-5 py-5 transition duration-300 hover:-translate-y-1 hover:border-lime-300/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.28)];
+  }
+
+  .hero-action::before {
+    content: "";
+    @apply absolute inset-0 opacity-0 transition duration-300;
+    background:
+      radial-gradient(circle at 12% 14%, rgba(163, 230, 53, 0.14), transparent 26%),
+      linear-gradient(135deg, rgba(163, 230, 53, 0.06), transparent 45%);
+  }
+
+  .hero-action:hover::before {
+    @apply opacity-100;
+  }
+
+  .hero-action--primary {
+    @apply border-lime-300/22;
+  }
+
+  .hero-action__meta,
+  .hero-action__title,
+  .hero-action__hint {
+    @apply relative block;
+  }
+
+  .hero-action__meta {
+    @apply mb-3 text-[10px] uppercase tracking-[0.32em] text-zinc-500;
+  }
+
+  .hero-action__title {
+    @apply text-base font-semibold leading-7 text-zinc-100;
+  }
+
+  .hero-action__hint {
+    @apply mt-3 text-[11px] uppercase tracking-[0.24em] text-zinc-500 transition duration-300;
+  }
+
+  .hero-action:hover .hero-action__hint {
+    @apply text-zinc-300;
+  }
+
+  .about-quote {
+    @apply relative mx-auto border-l border-r border-lime-300/18 border-r-lime-300/18 px-6 py-6 text-base italic leading-8 text-zinc-200 sm:px-8 sm:text-lg sm:leading-9;
+    animation: about-quote-drift 5.2s ease-in-out infinite;
+  }
+
+  .about-quote::before,
+  .about-quote::after {
+    @apply absolute text-4xl not-italic text-lime-300/26;
+    content: '"';
+  }
+
+  .about-quote::before {
+    left: 0;
+    top: -0.35rem;
+  }
+
+  .about-quote::after {
+    right: 0;
+    bottom: -1.1rem;
+  }
 }
 
 body.theme-daylight .theme-switch {
@@ -369,6 +463,56 @@ body.theme-daylight .mouse-core {
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
 }
 
+body.theme-daylight .header-glass {
+  @apply border-stone-300/75 bg-white/62 shadow-[0_18px_60px_rgba(148,163,184,0.18),inset_0_1px_0_rgba(255,255,255,0.5)];
+}
+
+body.theme-daylight .hero-action {
+  @apply border-stone-300/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(244,244,245,0.84))];
+}
+
+body.theme-daylight .hero-action__meta,
+body.theme-daylight .hero-action__hint {
+  @apply text-stone-500;
+}
+
+body.theme-daylight .hero-action__title {
+  @apply text-stone-900;
+}
+
+body.theme-daylight .about-quote {
+  @apply border-emerald-700/16 text-stone-800;
+}
+
+body.theme-daylight .section-shell::before {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(5, 150, 105, 0.28) 0 12px,
+      transparent 12px 20px
+    );
+}
+
+body.theme-daylight .section-shell::after {
+  background: linear-gradient(90deg, rgba(5, 150, 105, 0.82), rgba(5, 150, 105, 0.08));
+  box-shadow: 0 0 18px rgba(5, 150, 105, 0.14);
+}
+
+body.theme-daylight .hero-status-block {
+  @apply border-stone-300/80 bg-white/58;
+}
+
+@keyframes about-quote-drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
 @media (max-width: 767px) {
   .mouse-aura,
   .mouse-core {
@@ -384,6 +528,7 @@ body.theme-daylight .mouse-core {
   .scroll-fireworks,
   .mouse-aura,
   .mouse-core,
+  .about-quote,
   .terminal-glow,
   .terminal-fade,
   .typewriter-caret {

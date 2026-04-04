@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import AsciiDivider from '../components/AsciiDivider'
 import TerminalWindow from '../components/TerminalWindow'
 
 function HeroSection({ hero, siteMeta, theme }) {
@@ -45,12 +44,12 @@ function HeroSection({ hero, siteMeta, theme }) {
 
           <TerminalWindow title="hero/status" className="terminal-fade" contentClassName="space-y-5">
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-              <div className="rounded-[1.2rem] border border-zinc-900/90 bg-black/38 px-4 py-4">
+              <div className="hero-status-block">
                 <p className="mb-2 text-[10px] uppercase tracking-[0.32em] text-zinc-600">based in</p>
                 <p className="text-lg font-semibold text-zinc-100">{siteMeta.location}</p>
               </div>
 
-              <div className="rounded-[1.2rem] border border-zinc-900/90 bg-black/38 px-4 py-4">
+              <div className="hero-status-block">
                 <p className="mb-3 text-[10px] uppercase tracking-[0.32em] text-zinc-600">active focus</p>
                 <div className="flex flex-wrap gap-2">
                   {hero.labels.map((label) => (
@@ -67,18 +66,28 @@ function HeroSection({ hero, siteMeta, theme }) {
           </TerminalWindow>
         </div>
 
-        <AsciiDivider label="primary output" />
+        <div className="space-y-4">
+          <p className="text-[11px] uppercase tracking-[0.34em] text-zinc-500">primary output</p>
 
-        <div className="flex flex-wrap gap-3 text-sm">
-          <a className="terminal-link" href="#projects">
-            inspect_projects()
-          </a>
-          <a className="terminal-link muted" href="#about">
-            open_profile()
-          </a>
-          <a className="terminal-link muted" href={`mailto:${siteMeta.email}`}>
-            open_contact()
-          </a>
+          <div className="grid gap-3 lg:grid-cols-3">
+            <a className="hero-action hero-action--primary" href="#projects">
+              <span className="hero-action__meta">featured work</span>
+              <span className="hero-action__title">Browse flagship builds</span>
+              <span className="hero-action__hint">impact, architecture, metrics</span>
+            </a>
+
+            <a className="hero-action" href="#about">
+              <span className="hero-action__meta">personal profile</span>
+              <span className="hero-action__title">Read the operator notes</span>
+              <span className="hero-action__hint">background, principles, focus</span>
+            </a>
+
+            <a className="hero-action" href={`mailto:${siteMeta.email}`}>
+              <span className="hero-action__meta">direct channel</span>
+              <span className="hero-action__title">Start a focused conversation</span>
+              <span className="hero-action__hint">roles, projects, collaborations</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
