@@ -3,12 +3,10 @@ import TerminalWindow from '../components/TerminalWindow'
 
 function HeroSection({ hero, siteMeta, theme }) {
   const isDaylight = theme === 'daylight'
-  const [typedTitle, setTypedTitle] = useState('')
+  const [typedTitle, setTypedTitle] = useState(hero.title.slice(0, 1))
 
   useEffect(() => {
-    setTypedTitle('')
-
-    let frame = 0
+    let frame = 1
     const timer = window.setInterval(() => {
       frame += 1
       setTypedTitle(hero.title.slice(0, frame))
@@ -70,7 +68,7 @@ function HeroSection({ hero, siteMeta, theme }) {
           <p className="text-[11px] uppercase tracking-[0.34em] text-zinc-500">primary output</p>
 
           <div className="grid gap-3 lg:grid-cols-3">
-            <a className="hero-action hero-action--primary" href="#projects">
+            <a className="hero-action" href="#projects">
               <span className="hero-action__meta">featured work</span>
               <span className="hero-action__title">Browse flagship builds</span>
               <span className="hero-action__hint">impact, architecture, metrics</span>
@@ -79,7 +77,7 @@ function HeroSection({ hero, siteMeta, theme }) {
             <a className="hero-action" href="#about">
               <span className="hero-action__meta">personal profile</span>
               <span className="hero-action__title">Read the operator notes</span>
-              <span className="hero-action__hint">background, principles, focus</span>
+              <span className="hero-action__hint">background, experience, focus</span>
             </a>
 
             <a className="hero-action" href={`mailto:${siteMeta.email}`}>

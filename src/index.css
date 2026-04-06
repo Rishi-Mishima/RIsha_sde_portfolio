@@ -376,10 +376,6 @@ select {
     @apply opacity-100;
   }
 
-  .hero-action--primary {
-    @apply border-lime-300/22;
-  }
-
   .hero-action__meta,
   .hero-action__title,
   .hero-action__hint {

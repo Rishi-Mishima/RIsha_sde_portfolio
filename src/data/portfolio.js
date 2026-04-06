@@ -50,11 +50,6 @@ export const about = {
     'I optimize for software that keeps its shape after launch. That means clear ownership boundaries, useful abstractions, practical testing, and enough instrumentation to debug reality instead of arguing about it.',
     'Most of my strongest work has come from translating ambiguity into operating systems for a team: a frontend that scales cleanly, an API surface that stays predictable, or delivery workflows that make shipping feel routine instead of risky.',
   ],
-  principles: [
-    'Prefer explicit contracts over tribal knowledge.',
-    'Use metrics to justify architecture, not decorate it.',
-    'Keep UX fast, calm, and readable before making it clever.',
-  ],
 }
 
 export const skills = [

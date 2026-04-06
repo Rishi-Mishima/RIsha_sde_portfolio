@@ -1,7 +1,7 @@
 import heroPortrait from '../assets/hero.png'
+import AsciiDivider from '../components/AsciiDivider'
 import SectionHeading from '../components/SectionHeading'
 import TerminalWindow from '../components/TerminalWindow'
-import AsciiDivider from '../components/AsciiDivider'
 
 function AboutSection({ about, hero }) {
   return (
@@ -61,17 +61,6 @@ function AboutSection({ about, hero }) {
                 </div>
               ))}
             </div>
-          </TerminalWindow>
-
-          <TerminalWindow title="operating/principles">
-            <ul className="space-y-3 text-sm leading-7 text-zinc-300">
-              {about.principles.map((principle) => (
-                <li key={principle}>
-                  <span className="mr-2 text-lime-300/75">&gt;</span>
-                  {principle}
-                </li>
-              ))}
-            </ul>
           </TerminalWindow>
         </div>
       </div>

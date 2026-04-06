@@ -9,7 +9,6 @@ import {
   siteMeta,
   skills,
 } from './data/portfolio'
-import AsciiDivider from './components/AsciiDivider'
 import ContactSection from './sections/ContactSection'
 import ExperienceSection from './sections/ExperienceSection'
 import Footer from './sections/Footer'
@@ -18,7 +17,6 @@ import ProjectsSection from './sections/ProjectsSection'
 import SkillsSection from './sections/SkillsSection'
 import AboutSection from './sections/AboutSection'
 
-const THEME_STORAGE_KEY = 'portfolio-theme'
 const socialLinks = [
   {
     label: 'Instagram',
@@ -52,17 +50,10 @@ const socialLinks = [
 ]
 
 function App() {
-  const [theme, setTheme] = useState(() => {
-    if (typeof window === 'undefined') {
-      return 'terminal'
-    }
-
-    return window.localStorage.getItem(THEME_STORAGE_KEY) ?? 'terminal'
-  })
+  const [theme, setTheme] = useState('terminal')
 
   useEffect(() => {
     document.body.classList.toggle('theme-daylight', theme === 'daylight')
-    window.localStorage.setItem(THEME_STORAGE_KEY, theme)
   }, [theme])
 
   useEffect(() => {
