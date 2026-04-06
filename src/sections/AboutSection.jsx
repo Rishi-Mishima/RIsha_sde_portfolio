@@ -10,7 +10,7 @@ function AboutSection({ about, hero }) {
         index={1}
         title="About"
         subtitle={about.summary}
-        subtitleClassName="about-quote max-w-none text-center lg:max-w-[28rem]"
+        subtitleClassName="about-quote max-w-none text-center lg:max-w-[42rem]"
       />
 
       <div className="grid gap-6 lg:grid-cols-[minmax(280px,0.78fr)_minmax(0,1.22fr)] lg:gap-8">

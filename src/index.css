@@ -399,24 +399,51 @@ select {
   }
 
   .about-quote {
-    @apply relative mx-auto border-l border-r border-lime-300/18 border-r-lime-300/18 px-6 py-6 text-base italic leading-8 text-zinc-200 sm:px-8 sm:text-lg sm:leading-9;
-    animation: about-quote-drift 5.2s ease-in-out infinite;
+    @apply relative mx-auto w-full max-w-[42rem] px-8 py-7 text-base italic leading-8 text-zinc-100 sm:px-12 sm:py-8 sm:text-lg sm:leading-9;
+    animation:
+      about-quote-enter 680ms ease-out both,
+      about-quote-drift 5.2s ease-in-out 760ms infinite;
+    transition:
+      transform 260ms ease,
+      opacity 260ms ease;
   }
 
   .about-quote::before,
   .about-quote::after {
-    @apply absolute text-4xl not-italic text-lime-300/26;
-    content: '"';
+    content: "";
   }
 
   .about-quote::before {
-    left: 0;
-    top: -0.35rem;
+    position: absolute;
+    left: 1.1rem;
+    top: 12%;
+    bottom: 12%;
+    width: 3px;
+    border-radius: 9999px;
+    background: linear-gradient(180deg, rgba(163, 230, 53, 0), rgba(163, 230, 53, 0.88) 18%, rgba(163, 230, 53, 0.88) 82%, rgba(163, 230, 53, 0));
+    opacity: 0;
+    transform: scaleY(0.4);
+    transform-origin: top;
+    animation: about-quote-line 720ms ease-out 180ms forwards;
   }
 
   .about-quote::after {
-    right: 0;
-    bottom: -1.1rem;
+    position: absolute;
+    right: 1.1rem;
+    top: 12%;
+    bottom: 12%;
+    width: 3px;
+    border-radius: 9999px;
+    background: linear-gradient(180deg, rgba(163, 230, 53, 0), rgba(163, 230, 53, 0.58) 18%, rgba(163, 230, 53, 0.58) 82%, rgba(163, 230, 53, 0));
+    opacity: 0;
+    transform: scaleY(0.4);
+    transform-origin: bottom;
+    animation: about-quote-line 720ms ease-out 260ms forwards;
+  }
+
+  .about-quote:hover {
+    transform: translateY(-2px);
+    opacity: 0.96;
   }
 
   .project-showcase {
@@ -563,8 +590,20 @@ body.theme-daylight .hero-action__title {
   @apply text-stone-900;
 }
 
+body.theme-daylight .display-title {
+  color: #111827 !important;
+}
+
 body.theme-daylight .about-quote {
-  @apply border-emerald-700/16 text-stone-800;
+  color: #111827 !important;
+}
+
+body.theme-daylight .about-quote::before {
+  background: linear-gradient(180deg, rgba(51, 65, 85, 0), rgba(51, 65, 85, 0.82) 18%, rgba(51, 65, 85, 0.82) 82%, rgba(51, 65, 85, 0));
+}
+
+body.theme-daylight .about-quote::after {
+  background: linear-gradient(180deg, rgba(5, 150, 105, 0), rgba(5, 150, 105, 0.74) 18%, rgba(5, 150, 105, 0.74) 82%, rgba(5, 150, 105, 0));
 }
 
 body.theme-daylight .project-card {
@@ -642,10 +681,46 @@ body.theme-daylight .hero-status-block {
   }
 }
 
+@keyframes about-quote-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes about-quote-line {
+  from {
+    opacity: 0;
+    transform: scaleY(0.4);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
 @media (max-width: 767px) {
   .mouse-aura,
   .mouse-core {
     display: none;
+  }
+
+  .about-quote {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .about-quote::before {
+    left: 0.65rem;
+  }
+
+  .about-quote::after {
+    right: 0.65rem;
   }
 }
 
