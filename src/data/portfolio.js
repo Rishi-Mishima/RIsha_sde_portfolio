@@ -75,6 +75,7 @@ export const projects = [
   {
     name: 'Realtime Incident Command',
     label: '[p01]',
+    repoUrl: 'https://github.com/Rishi-Mishima/realtime-incident-command',
     tagline: 'Internal incident operations surface for platform and reliability teams.',
     impact:
       'Cut mean time to detect by 42% by unifying telemetry, alert routing, and live response context into one operational view.',
@@ -91,6 +92,7 @@ export const projects = [
   {
     name: 'Developer Workflow Graph',
     label: '[p02]',
+    repoUrl: 'https://github.com/Rishi-Mishima/developer-workflow-graph',
     tagline: 'Pipeline analysis tooling for CI efficiency and release reliability.',
     impact:
       'Reduced CI waste and flaky deployment loops by exposing dependency bottlenecks, cache misses, and repeated failure paths across the delivery pipeline.',
@@ -107,6 +109,7 @@ export const projects = [
   {
     name: 'Pricing Intelligence Engine',
     label: '[p03]',
+    repoUrl: 'https://github.com/Rishi-Mishima/pricing-intelligence-engine',
     tagline: 'Decision support platform combining market signals with internal experiments.',
     impact:
       'Improved pricing confidence for product leadership by combining external benchmarks, demand trends, and experiment output into a consistent review workflow.',
