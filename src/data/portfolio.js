@@ -15,7 +15,7 @@ export const navigation = [
 
 export const hero = {
   eyebrow: 'currently on Search Year Visa / biomedical Engineering background ',
-  title: 'Hi, my name is Risha, a passionate full-stack software engineer.',
+  title: 'Hi, I\'m Risha',
   intro:
     //'I design and ship full-stack software with a bias for clean interfaces, measurable outcomes, and infrastructure that does not become the team\'s next problem.',
     'I have experience across the stack, working with Java (Spring Boot), Python, and modern front-end frameworks (Vue/React), and have developed projects ranging from RAG-based AI systems to full-featured web platforms',

@@ -386,10 +386,9 @@ select {
     @apply mb-3 text-[10px] uppercase tracking-[0.32em] text-zinc-500;
   }
 
-  .hero-action__title {
-    @apply text-base font-semibold leading-7 text-zinc-100;
-  }
-
+.hero-action__title {
+  @apply text-xl font-semibold leading-8 text-zinc-100;
+}
   .hero-action__hint {
     @apply mt-3 text-[11px] uppercase tracking-[0.24em] text-zinc-500 transition duration-300;
   }

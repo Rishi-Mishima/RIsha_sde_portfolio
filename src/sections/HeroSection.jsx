@@ -5,19 +5,22 @@ function HeroSection({ hero, siteMeta, theme }) {
   const isDaylight = theme === 'daylight'
   const [typedTitle, setTypedTitle] = useState(hero.title.slice(0, 1))
 
-  useEffect(() => {
-    let frame = 1
-    const timer = window.setInterval(() => {
-      frame += 1
-      setTypedTitle(hero.title.slice(0, frame))
+useEffect(() => {
+  let frame = 0
 
-      if (frame >= hero.title.length) {
-        window.clearInterval(timer)
-      }
-    }, 36)
+  const timer = setInterval(() => {
+    frame++
 
-    return () => window.clearInterval(timer)
-  }, [hero.title, theme])
+    setTypedTitle(hero.title.slice(0, frame))
+
+    if (frame >= hero.title.length) {
+      clearInterval(timer)
+    }
+  }, 80)
+
+  return () => clearInterval(timer)
+}, [hero.title])
+
 
   return (
     <section className="hero-shell flex min-h-[calc(100vh-11rem)] items-center py-10 sm:py-12">
@@ -31,7 +34,7 @@ function HeroSection({ hero, siteMeta, theme }) {
           <div className="space-y-6">
             <p className="text-[11px] uppercase tracking-[0.36em] text-zinc-500">{hero.eyebrow}</p>
             <h1
-              className={`display-title max-w-5xl text-5xl leading-[0.95] sm:text-7xl lg:text-[5.8rem] typewriter-caret ${isDaylight ? 'hero-title-daylight' : ''}`}
+              className={`display-title max-w-5xl text-5xl leading-[0.95] sm:text-7xl lg:text-[7.2rem] typewriter-caret ${isDaylight ? 'hero-title-daylight' : ''}`}
             >
               {typedTitle}
             </h1>
