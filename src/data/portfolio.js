@@ -82,7 +82,7 @@ export const projects = [
       'Built a production-grade RAG-based healthcare conversational system, enabling real-time semantic search over 5,000+ medical documents with <500 ms latency',
     architecture:
       'Designed end-to-end RAG pipeline covering ingestion, chunking, embedding, indexing, hybrid retrieval, and streaming response generation', 
-    stack: ['Java', 'SpringBoot', 'Python', 'LangChain', 'Elasticsearch', 'Redis', 'RabbitMQ', 'MongoDB'],
+    stack: ['RAG', 'Java', 'SpringBoot', 'Python', 'LangChain', 'Elasticsearch', 'Redis', 'RabbitMQ', 'MongoDB'],
     metrics: ['<500 ms latency>', '200+ concurrent users', '5,000+ medical documents'],
     highlights: [
       'Implemented hybrid retrieval (Elasticsearch BM25 + vector search), significantly improving semantic relevance and recall accuracy', 
@@ -107,20 +107,20 @@ export const projects = [
     ],
   },
   {
-    name: 'Pricing Intelligence Engine',
+    name: 'Java-Based Mini Database Engine',
     label: '[p03]',
-    repoUrl: 'https://github.com/Rishi-Mishima/pricing-intelligence-engine',
-    tagline: 'Decision support platform combining market signals with internal experiments.',
+    repoUrl: 'https://github.com/Rishi-Mishima/javabased-minidb',
+    tagline: 'A lightweight relational database engine implemented in Java, supporting basic SQL operations, indexing, and transaction management.',
     impact:
-      'Improved pricing confidence for product leadership by combining external benchmarks, demand trends, and experiment output into a consistent review workflow.',
+      'Built a functional mini database engine demonstrating core database concepts and operations, showcasing understanding of data storage, indexing, and query processing.',
     architecture:
-      'Used scheduled collectors, asynchronous workers, analyst review tools, and policy-aware APIs to keep decision inputs fresh without manual spreadsheet work.',
-    stack: ['React', 'Python', 'FastAPI', 'Postgres', 'Celery', 'AWS'],
-    metrics: ['$1.2M modeled uplift', '4 regions', '12 automated data feeds'],
+      'Implemented MVCC and Two-Phase Locking (2PL) to ensure serializable isolation under concurrent workloads, demonstrating strong consistency guarantees in a multi-threaded environment.',
+    stack: ['Java', 'MVCC', 'B+ Tree', 'Java NIO', 'Socket programming'],
+    metrics: ['functional database engine', '5ms lookup latency', 'query execution over TCP sockets'],
     highlights: [
-      'Built review tooling that separated system recommendations from human approval.',
-      'Created ingestion checks to flag stale or contradictory competitive data.',
-      'Balanced scheduled batch collection with on-demand analysis endpoints for planners.',
+      'Designed WAL-based crash recovery mechanism ensuring ACID compliance and data durability',
+      'Developed B+ Tree indexing structure enabling efficient range queries and reducing lookup latency to ˜5ms for 1M records',
+      'Designed client-server architecture over TCP sockets to support remote SQL-like query execution',
     ],
   },
 ]
@@ -148,30 +148,20 @@ export const experience = [
       'Reduced repeated incidents by documenting patterns and turning them into reusable defaults.',
     ],
   },
-  {
-    period: '2019 -> 2021',
-    role: 'Engineering Intern -> Junior Engineer',
-    company: 'Earlier Experience',
-    summary:
-      'Built a foundation in debugging, testing, and product delivery by contributing to production systems under guidance from senior engineers.',
-    achievements: [
-      'Shipped targeted improvements to internal tools and customer workflows.',
-      'Developed strong habits around code review, instrumentation, and incremental delivery.',
-    ],
-  },
+
 ]
 
 export const contacts = [
   {
     label: 'Email',
-    value: 'risha@example.com',
-    href: 'mailto:risha@example.com',
-    detail: 'Best for hiring or project discussions.',
+    value: 'janicerx10@gmail.com',
+    href: 'mailto:janicerx10@gmail.com',
+    detail: 'Open for opportunities or project discussions.',
   },
   {
     label: 'GitHub',
-    value: 'github.com/risha',
-    href: 'https://github.com/',
+    value: 'github.com/rishi-mishima',
+    href: 'https://github.com/Rishi-Mishima',
     detail: 'Code samples, experiments, and shipped side projects.',
   },
   {
