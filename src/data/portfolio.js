@@ -90,20 +90,20 @@ export const projects = [
     ],
   },
   {
-    name: 'Developer Workflow Graph',
+    name: 'Developer Community Platform',
     label: '[p02]',
     repoUrl: 'https://github.com/Rishi-Mishima/developer-workflow-graph',
-    tagline: 'Pipeline analysis tooling for CI efficiency and release reliability.',
+    tagline: 'A scalable developer community platform with high-concurrency caching, asynchronous messaging, and real-time ranking systems',
     impact:
-      'Reduced CI waste and flaky deployment loops by exposing dependency bottlenecks, cache misses, and repeated failure paths across the delivery pipeline.',
+      'Developed a scalable backend system supporting content publishing, user interactions, and real-time notifications',
     architecture:
-      'Modeled build, test, and release execution as a queryable graph with incremental snapshots, commit-linked traces, and historical comparisons for hot paths.',
-    stack: ['TypeScript', 'Vite', 'Go', 'ClickHouse', 'Docker', 'GitHub Actions'],
-    metrics: ['31% faster pipelines', '18k jobs analyzed/day', '23% fewer reruns'],
+      'Designed multi-level caching architecture (Caffeine + Redis, Cache Aside), improving hot-content API QPS by 25% and reducing latency by 40%.',
+    stack: ['Java', 'SpringBoot', 'MyBatis', 'MySql', 'Redis', 'RabbitMQ', 'Caffeine', 'Elasticsearch'],
+    metrics: ['25% improvement in hot-content API QPS', '40% reduction in latency', 'visible improvement in user engagement metrics'],
     highlights: [
-      'Defined the event schema linking git commits, jobs, and artifact state.',
-      'Built a lightweight frontend optimized for dense operational data instead of marketing-style dashboards.',
-      'Introduced cache-hit diagnostics that helped teams remove the most expensive invalidations first.',
+      'Implemented Redis ZSet-based ranking system for high-concurrency activity tracking with strong consistency guarantees',
+      'Built asynchronous event-driven pipelines using RabbitMQ, reducing request latency by 30% and improving system coupling',
+      'Reduced redundant database access by introducing ThreadLocal-based user context caching, improving throughput under concurrent load',
     ],
   },
   {
