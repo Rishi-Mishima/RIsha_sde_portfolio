@@ -18,16 +18,16 @@ export const hero = {
   title: 'Hi, I\'m Risha',
   intro:
     //'I design and ship full-stack software with a bias for clean interfaces, measurable outcomes, and infrastructure that does not become the team\'s next problem.',
-    'I have experience across the stack, working with Java (Spring Boot), Python, and modern front-end frameworks (Vue/React), and have developed projects ranging from RAG-based AI systems to full-featured web platforms',
+    'I am a full-stack software engineer and have experience working with Java (Spring Boot), Python, and modern front-end frameworks (Vue/React). I have developed projects ranging from RAG-based AI systems to full-featured web platforms.',
   commandLines: [
     '$ whoami',
     'full-stack software-engineer --focus platform, product, frontend-architecture',
     '$ education',
     '🇳🇱 The University of Leiden, Master of Science',
-    '🇦🇺 The University of Sydney, Bachelor of Biomedical Engineering (Honours) and Bachelor of Arts',
+    '🇦🇺 The University of Sydney, Bachelor of Biomedical Engineering (Honours)',
     '🇦🇺 The University of Sydney, Bachelor of Arts',
     '$ priorities',
-    'reliability && delivery-speed && maintainable-systems',
+    'reliability && team-cooperation && measurable-outcomes',
   ],
   labels: [
     'Python', 
@@ -39,14 +39,14 @@ export const hero = {
   ],
   stats: [
     { label: 'primary mode', value: 'full-stack' },
-    { label: 'languages', value: 'English, Chinese, Japanese (N1)' },
-    { label: 'languages', value: 'English, Chinese, Japanese (N1)' },
+    { label: 'languages', value: 'English, Chinese(Native), Japanese (N1)' },
+    { label: 'hobbies', value: 'Piano(ABRSM8), Electric Guitar' },
   ],
 }
 
 export const about = {
   summary:
-    'My work usually sits at the seam between product demands and systems constraints. I enjoy shaping interfaces, tightening backend contracts, and reducing the friction that slows good teams down.',
+    'I am an active learner and always open to new technical challenges. Equipped with an engineering mindset and a background in biomedical engineering, I bring a unique perspective to software development, combining analytical problem-solving skills with a user-centric approach.',
   paragraphs: [
     'I optimize for software that keeps its shape after launch. That means clear ownership boundaries, useful abstractions, practical testing, and enough instrumentation to debug reality instead of arguing about it.',
     'Most of my strongest work has come from translating ambiguity into operating systems for a team: a frontend that scales cleanly, an API surface that stays predictable, or delivery workflows that make shipping feel routine instead of risky.',
@@ -56,11 +56,11 @@ export const about = {
 export const skills = [
   {
     category: 'Frontend',
-    items: ['React', 'TypeScript', 'Vite', 'Design systems', 'Performance tuning'],
+    items: ['React', 'VUE', 'Component design', 'State management', 'Performance optimisation'],
   },
   {
     category: 'Backend',
-    items: ['Node.js', 'Python', 'API design', 'Event-driven services', 'PostgreSQL'],
+    items: ['Java', 'Python', 'API design', 'Event-driven services', 'Node.js'],
   },
   {
     category: 'Platform',
