@@ -74,20 +74,19 @@ export const skills = [
 
 export const projects = [
   {
-    name: 'Realtime Incident Command',
+    name: 'AI Healthcare Conversational Assistant ',
     label: '[p01]',
-    repoUrl: 'https://github.com/Rishi-Mishima/realtime-incident-command',
-    tagline: 'Internal incident operations surface for platform and reliability teams.',
+    repoUrl: 'https://github.com/Rishi-Mishima/RAG-smart-flowpai',
+    tagline: 'A retrieval-augmented generation system that provides real-time, context-aware responses to healthcare professionals.',
     impact:
-      'Cut mean time to detect by 42% by unifying telemetry, alert routing, and live response context into one operational view.',
+      'Built a production-grade RAG-based healthcare conversational system, enabling real-time semantic search over 5,000+ medical documents with <500 ms latency',
     architecture:
-      'Built as an event-driven system with queue-backed ingestion, typed service contracts, websocket updates, and an auditable incident timeline for every responder action.',
-    stack: ['React', 'Node.js', 'PostgreSQL', 'Redis', 'Kafka', 'OpenTelemetry'],
-    metrics: ['42% faster detection', '99.95% uptime', '7 teams onboarded'],
+      'Designed end-to-end RAG pipeline covering ingestion, chunking, embedding, indexing, hybrid retrieval, and streaming response generation', 
+    stack: ['Java', 'SpringBoot', 'Python', 'LangChain', 'Elasticsearch', 'Redis', 'RabbitMQ', 'MongoDB'],
+    metrics: ['<500 ms latency>', '200+ concurrent users', '5,000+ medical documents'],
     highlights: [
-      'Designed the dashboard information hierarchy for active incidents and escalation paths.',
-      'Implemented ingestion services that normalized alert payloads before fan-out.',
-      'Added responder-focused audit logs so postmortems could trace system and human actions together.',
+      'Implemented hybrid retrieval (Elasticsearch BM25 + vector search), significantly improving semantic relevance and recall accuracy', 
+      'Handled 200+ concurrent users via Redis caching and RabbitMQ-based asynchronous processing, reducing first-token latency by 70%'
     ],
   },
   {
