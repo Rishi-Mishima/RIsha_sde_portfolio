@@ -127,25 +127,25 @@ export const projects = [
 
 export const experience = [
   {
-    period: '2023 -> Present',
-    role: 'Software Development Engineer',
-    company: 'Current Company',
+    period: '2021.06 -> 2022.06',
+    role: 'University Research Assistant',
+    company: 'University of Sydney',
     summary:
-      'Owning internal platform and product initiatives with a focus on reliability, frontend system quality, and delivery workflows that scale beyond a single team.',
+    'Developed a Python-based data analysis pipeline for MRI contrast agent research using Pandas, NumPy, and Matplotlib, enabling efficient processing and visualisation of large datasets.',
     achievements: [
-      'Led cross-functional delivery on tooling used by product, platform, and operations teams.',
-      'Improved deployment confidence through stronger observability and release feedback loops.',
+      'Extracted and analyzed nanoparticle relaxivity data from biomedical literature, identifying key factors influencing MRI performance',
+      'Automated data extraction and analysis processes, reducing manual effort by 50% and accelerating research insights',
     ],
   },
   {
-    period: '2021 -> 2023',
-    role: 'Full Stack Engineer',
-    company: 'Previous Team',
+    period: '2019.06 -> 2019.09',
+    role: 'Student Biomedical Engineer Intern',
+    company: 'St. John\'s Hospital Sydney',
     summary:
-      'Delivered customer-facing features across frontend applications, APIs, and cloud infrastructure while tightening the engineering handoff from design to production.',
+      'medical device verfication and validation, including software testing, documentation, and regulatory compliance support for medical devices used in clinical settings.',
     achievements: [
-      'Owned greenfield features end-to-end from discovery through rollout and support.',
-      'Reduced repeated incidents by documenting patterns and turning them into reusable defaults.',
+      'Assisted in the verification and validation of medical devices, ensuring compliance with regulatory requirements.',
+      'Participated in the documentation and reporting of medical device testing results.',
     ],
   },
 
