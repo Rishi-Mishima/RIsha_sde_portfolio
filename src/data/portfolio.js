@@ -169,7 +169,7 @@ export const experience = [
     ],
   },
   {
-    period: '2019.06 -> 2019.09',
+    period: '2022.06 -> 2022.12',
     role: 'Biomedical Engineer Intern',
     company: 'Datong Second People\'s Hospital, China',
     summary:

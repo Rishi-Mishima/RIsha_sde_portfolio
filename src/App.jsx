@@ -20,7 +20,7 @@ import AboutSection from './sections/AboutSection'
 const socialLinks = [
   {
     label: 'Instagram',
-    href: 'https://instagram.com/',
+    href: 'https://www.instagram.com/janicerx12/x',
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4">
         <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor" strokeWidth="1.7" />
@@ -40,7 +40,7 @@ const socialLinks = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://linkedin.com/',
+    href: 'https://www.linkedin.com/in/janice-sun-182418160/',
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current">
         <path d="M4.98 3.5A2.48 2.48 0 1 0 5 8.46a2.48 2.48 0 0 0-.02-4.96M3.1 9.8h3.77V21H3.1zm6.13 0H12.84v1.53h.05c.5-.96 1.73-1.97 3.56-1.97 3.8 0 4.5 2.5 4.5 5.74V21h-3.77v-5.2c0-1.24-.02-2.83-1.72-2.83-1.72 0-1.98 1.35-1.98 2.74V21H9.23z" />
