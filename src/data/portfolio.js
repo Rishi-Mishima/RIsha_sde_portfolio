@@ -207,7 +207,7 @@ export const contacts = [
   {
     label: 'LinkedIn',
     value: 'linkedin.com/Risha Sun',
-    href: 'https://www.linkedin.com/in/janice-sun-182418160',
+    href: 'https://www.linkedin.com/in/risha-sun-182418160',
     detail: 'Career history and professional network.',
   },
 ]
