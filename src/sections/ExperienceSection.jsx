@@ -10,7 +10,7 @@ function ExperienceSection({ experience }) {
       <SectionHeading
         index={4}
         title="Experience"
-        subtitle="A compact progression view showing scope, ownership, and the kinds of engineering problems I have spent the most time solving."
+        subtitle="Engineering related exprinces...🧬  Building medical device, working with clients and patients, dealing with medical device documentation and etc..."
         note="timeline"
       />
 

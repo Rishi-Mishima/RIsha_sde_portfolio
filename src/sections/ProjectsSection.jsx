@@ -9,7 +9,7 @@ function ProjectsSection({ projects }) {
         <SectionHeading
           index={3}
           title="Projects"
-          subtitle="Selected work presented as direct-entry engineering case studies. Each card opens the corresponding repository in a new tab."
+          subtitle="There are more projects undergoing construction... Soooo STAY TUNED.🎸"
           note="github index"
         />
 
@@ -19,20 +19,19 @@ function ProjectsSection({ projects }) {
               <div className="space-y-3">
                 <p className="section-kicker">[interaction]</p>
                 <p className="text-sm leading-8 text-zinc-300">
-                  The layout stays vertically stacked and immediately scannable. Hover signals that
-                  the whole card is clickable, and click-through goes straight to the repository.
+                  The project cards will open the corresponding GitHub repository in a new tab.
                 </p>
               </div>
 
               <div className="grid gap-3 text-[10px] uppercase tracking-[0.3em] text-zinc-500">
                 <div className="rounded-2xl border border-zinc-900/90 bg-black/35 px-4 py-4">
-                  navigation = direct
+                  Projects = RAG, AI Agent, Full-Stack
                 </div>
                 <div className="rounded-2xl border border-zinc-900/90 bg-black/35 px-4 py-4">
-                  layout = stacked_cards
+                  Diverse Backgrounds
                 </div>
                 <div className="rounded-2xl border border-zinc-900/90 bg-black/35 px-4 py-4">
-                  destination = github_repo
+                  Destination = GitHub Repository
                 </div>
               </div>
             </div>

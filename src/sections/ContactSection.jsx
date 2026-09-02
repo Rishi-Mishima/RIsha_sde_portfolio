@@ -15,12 +15,12 @@ function ContactSection({ contacts, siteMeta }) {
         <div className="space-y-10">
           <div className="space-y-4">
             <p className="max-w-2xl text-sm leading-8 text-zinc-300 sm:text-base">
-              If you&apos;re hiring for product engineering, platform work, or full-stack roles
-              where software quality matters, I&apos;m interested in thoughtful conversations with
+              If you&apos;re hiring for backend, AI agent, RAG, platform, or full-stack roles
+              with diverse experiences, I&apos;m interested in thoughtful conversations with
               strong ownership and technical depth.
             </p>
             <p className="text-[11px] uppercase tracking-[0.3em] text-zinc-500">
-              preferred_location = {siteMeta.location}
+              preferred location = The Netherlands
             </p>
           </div>
 
