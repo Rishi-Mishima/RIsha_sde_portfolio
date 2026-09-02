@@ -87,8 +87,8 @@ export const skills = [
 export const projects = [
   {
     name: 'Multi-Agent Collaborative Terminal Development Assistant',
-    label: '[p01]',
-    repoUrl: '[https://github.com/Rishi-Mishima/java-cli](https://github.com/Rishi-Mishima/java-cli)',
+    label: 'Project 1: AI-Agent',
+    repoUrl: 'https://github.com/Rishi-Mishima/java-cli',
     tagline: 'A Java-based command-line AI Agent runtime with ReAct tool calling, multi-agent collaboration, memory management, and codebase RAG',
     impact:
       'Built a terminal-first AI Agent runtime for local development workflows, enabling natural language-driven task planning, code retrieval, file operations, and command execution',
@@ -120,25 +120,26 @@ export const projects = [
     ],
   },
   {
-    name: 'AI Healthcare Conversational Assistant ',
-    label: '[p01]',
+    name: 'RAG Smart Knowledge Assistant Platform ',
+    label: 'Project 2: RAG',
     repoUrl: 'https://github.com/Rishi-Mishima/RAG-smart-flowpai',
-    tagline: 'A retrieval-augmented generation system that provides real-time, context-aware responses to healthcare professionals.',
+    tagline: 'A React-based intelligent knowledge assistant platform that enables users to upload documents, perform semantic search, and receive real-time AI-generated answers grounded in retrieved knowledge.',
     impact:
-      'Built a production-grade RAG-based healthcare conversational system, enabling real-time semantic search over 5,000+ medical documents with <500 ms latency',
+      'Designed an end-to-end RAG workflow covering document ingestion, chunking, embedding generation, hybrid retrieval, prompt construction, and streaming LLM response generation.',
     architecture:
-      'Designed end-to-end RAG pipeline covering ingestion, chunking, embedding, indexing, hybrid retrieval, and streaming response generation',
+      'Java, Spring Boot, Elasticsearch, Kafka, Redis, MinIO, MySQL, LLM APIs, React, and TypeScript. ',
     stack: ['RAG', 'Java', 'SpringBoot', 'Python', 'LangChain', 'Elasticsearch', 'Redis', 'RabbitMQ', 'MongoDB'],
     metrics: ['<500 ms latency>', '200+ concurrent users', '5,000+ medical documents'],
     highlights: [
-      'Implemented hybrid retrieval (Elasticsearch BM25 + vector search), significantly improving semantic relevance and recall accuracy',
-      'Handled 200+ concurrent users via Redis caching and RabbitMQ-based asynchronous processing, reducing first-token latency by 70%'
+      'Designed a hybrid retrieval pipeline in Elasticsearch combining dense-vector KNN recall with BM25-based second-stage rescoring to improve retrieval quality before selecting the final Top-K document chunks.',
+      'Implemented streaming document ingestion and semantic chunking with Apache Tika and PDFBox, using parent-child chunking and page-aware PDF processing to preserve document structure and metadata for downstream retrieval.',
+      'Built an asynchronous document-processing pipeline with Kafka, integrating MinIO-based chunked file storage, Redis-backed upload-state tracking, embedding generation, and bulk Elasticsearch indexing.',
     ],
   },
 
   {
     name: 'Java-Based Mini Database Engine',
-    label: '[p03]',
+    label: 'Project 3: Mini Database',
     repoUrl: 'https://github.com/Rishi-Mishima/java-miniDB',
     tagline: 'A lightweight relational database engine implemented in Java, supporting basic SQL operations, indexing, and transaction management.',
     impact:
