@@ -170,13 +170,22 @@ export const experience = [
   },
   {
     period: '2019.06 -> 2019.09',
+    role: 'Biomedical Engineer Intern',
+    company: 'Datong Second People\'s Hospital, China',
+    summary:
+      'Assisted with software testing, documentation, and regulatory compliance support for medical devices used in clinical settings.',
+    achievements: [
+      'Assisted in the verification and validation of medical devices, ensuring compliance with regulatory requirements.',
+    ],
+  },
+  {
+    period: '2019.06 -> 2019.09',
     role: 'Student Biomedical Engineer Intern',
     company: 'St. John\'s Hospital Sydney',
     summary:
-      'medical device verfication and validation, including software testing, documentation, and regulatory compliance support for medical devices used in clinical settings.',
+      'Engaged with clinicians and end users to understand clinical workflows and identify unmet needs, translating clinical observations into engineering design requirements',
     achievements: [
-      'Assisted in the verification and validation of medical devices, ensuring compliance with regulatory requirements.',
-      'Participated in the documentation and reporting of medical device testing results.',
+      'Assisted in the development of a conceptual peripheral nerve stimulation device for post-surgical pain management, evaluating design requirements, usability considerations, and potential safety risks.',
     ],
   },
 

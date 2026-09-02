@@ -7,7 +7,7 @@ function ContactSection({ contacts }) {
       <SectionHeading
         index={5}
         title="Contact"
-        subtitle="Direct channels only. The structure stays minimal until there is a real workflow or backend behind a contact form."
+        subtitle="💌 Open to new opportunities and collaborations. "
         note="outreach"
       />
 
