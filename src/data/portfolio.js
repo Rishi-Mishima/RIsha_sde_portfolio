@@ -18,10 +18,10 @@ export const hero = {
   title: 'Hi, I\'m Risha',
   intro:
     //'I design and ship full-stack software with a bias for clean interfaces, measurable outcomes, and infrastructure that does not become the team\'s next problem.',
-    'I am a full-stack software engineer and have experience working with Java (Spring Boot), Python, and modern front-end frameworks (Vue/React). I have developed projects ranging from RAG-based AI systems to full-featured web platforms.',
+    'I am a full-stack Java-focused Software Engineer building backend systems, AI agents and RAG applications, with hands-on experience in database internals and system design.',
   commandLines: [
     '$ whoami',
-    'full-stack software-engineer --focus platform, product, frontend-architecture',
+    'software-engineer --focus java-backend, ai-agents, rag and more',
     '$ education',
     '🇳🇱 The University of Leiden, Master of Science',
     '🇦🇺 The University of Sydney, Bachelor of Biomedical Engineering (Honours)',
@@ -30,12 +30,12 @@ export const hero = {
     'reliability && team-cooperation && measurable-outcomes',
   ],
   labels: [
-    'Python', 
+    'AI Agents',
     'Java',
-    'VUE/React',
-    //'typescript',
-    'platform tooling',
-    'observability',
+    'RAG',
+    'Vue / React',
+    'Backend Engineering',
+    'Product Mindset',
   ],
   stats: [
     { label: 'primary mode', value: 'full-stack' },
@@ -55,16 +55,25 @@ export const about = {
 
 export const skills = [
   {
-    category: 'Frontend',
-    items: ['React', 'VUE', 'Component design', 'State management', 'Performance optimisation'],
+    category: 'AI Engineering',
+    items: [
+      'AI Agents', 'RAG', 'LLM Tool Calling', 'ReAct', 'Plan-and-Execute', 'Vector Search',
+    ],
   },
   {
     category: 'Backend',
-    items: ['Java', 'Python', 'API design', 'Event-driven services', 'Node.js'],
+    items: [
+      'Java',
+      'Spring Boot',
+      'Python',
+      'REST API Design',
+      'MySQL',
+      'Redis',
+    ],
   },
   {
-    category: 'Platform',
-    items: ['AWS', 'Docker', 'CI/CD', 'Observability', 'Infrastructure debugging'],
+    category: 'Frontend',
+    items: ['React', 'VUE', 'Component design', 'State management', 'Performance optimisation'],
   },
   {
     category: 'Ways of Working',
@@ -74,6 +83,40 @@ export const skills = [
 
 export const projects = [
   {
+    name: 'Multi-Agent Collaborative Terminal Development Assistant',
+    label: '[p01]',
+    repoUrl: '[https://github.com/Rishi-Mishima/java-cli](https://github.com/Rishi-Mishima/java-cli)',
+    tagline: 'A Java-based command-line AI Agent runtime with ReAct tool calling, multi-agent collaboration, memory management, and codebase RAG',
+    impact:
+      'Built a terminal-first AI Agent runtime for local development workflows, enabling natural language-driven task planning, code retrieval, file operations, and command execution',
+    architecture:
+      'Designed a modular Agent runtime integrating ReAct execution, Plan-and-Execute task decomposition, ToolRegistry-based tool orchestration, MCP tool extension, layered memory, and SQLite-backed code retrieval.',
+    stack: [
+      'Java 17',
+      'Maven',
+      'Jackson',
+      'OkHttp',
+      'JLine',
+      'SQLite JDBC',
+      'JavaParser',
+      'Jieba',
+      'Ollama Embedding',
+      'MCP',
+    ],
+    metrics: [
+      'Supports multi-round LLM tool calling with observation feedback',
+      'Supports concurrent batch execution for independent DAG tasks',
+      'Supports hybrid semantic and keyword-based code retrieval',
+    ],
+    highlights: [
+      'Implemented the core ReAct Agent loop with LLM function calling, tool call parsing, multi-round observation feedback, and final response generation',
+      'Built a Plan-and-Execute and multi-agent workflow where Planner generates task plans, Workers execute subtasks, and Reviewer validates results with retry support',
+      'Designed a DAG-based task dependency model with topology-driven scheduling and concurrent batch execution for independent tasks',
+      'Implemented layered memory with short-term conversation memory, long-term factual memory, summary memory, tool result records, and local JSON persistence',
+      'Encapsulated codebase RAG as a search_code tool using AST-based code chunking, relationship extraction, Ollama embeddings, and SQLite persistence',
+    ],
+  },
+  {
     name: 'AI Healthcare Conversational Assistant ',
     label: '[p01]',
     repoUrl: 'https://github.com/Rishi-Mishima/RAG-smart-flowpai',
@@ -81,35 +124,19 @@ export const projects = [
     impact:
       'Built a production-grade RAG-based healthcare conversational system, enabling real-time semantic search over 5,000+ medical documents with <500 ms latency',
     architecture:
-      'Designed end-to-end RAG pipeline covering ingestion, chunking, embedding, indexing, hybrid retrieval, and streaming response generation', 
+      'Designed end-to-end RAG pipeline covering ingestion, chunking, embedding, indexing, hybrid retrieval, and streaming response generation',
     stack: ['RAG', 'Java', 'SpringBoot', 'Python', 'LangChain', 'Elasticsearch', 'Redis', 'RabbitMQ', 'MongoDB'],
     metrics: ['<500 ms latency>', '200+ concurrent users', '5,000+ medical documents'],
     highlights: [
-      'Implemented hybrid retrieval (Elasticsearch BM25 + vector search), significantly improving semantic relevance and recall accuracy', 
+      'Implemented hybrid retrieval (Elasticsearch BM25 + vector search), significantly improving semantic relevance and recall accuracy',
       'Handled 200+ concurrent users via Redis caching and RabbitMQ-based asynchronous processing, reducing first-token latency by 70%'
     ],
   },
-  {
-    name: 'Developer Community Platform',
-    label: '[p02]',
-    repoUrl: 'https://github.com/Rishi-Mishima/developer-workflow-graph',
-    tagline: 'A scalable developer community platform with high-concurrency caching, asynchronous messaging, and real-time ranking systems',
-    impact:
-      'Developed a scalable backend system supporting content publishing, user interactions, and real-time notifications',
-    architecture:
-      'Designed multi-level caching architecture (Caffeine + Redis, Cache Aside), improving hot-content API QPS by 25% and reducing latency by 40%.',
-    stack: ['Java', 'SpringBoot', 'MyBatis', 'MySql', 'Redis', 'RabbitMQ', 'Caffeine', 'Elasticsearch'],
-    metrics: ['25% improvement in hot-content API QPS', '40% reduction in latency', 'visible improvement in user engagement metrics'],
-    highlights: [
-      'Implemented Redis ZSet-based ranking system for high-concurrency activity tracking with strong consistency guarantees',
-      'Built asynchronous event-driven pipelines using RabbitMQ, reducing request latency by 30% and improving system coupling',
-      'Reduced redundant database access by introducing ThreadLocal-based user context caching, improving throughput under concurrent load',
-    ],
-  },
+
   {
     name: 'Java-Based Mini Database Engine',
     label: '[p03]',
-    repoUrl: 'https://github.com/Rishi-Mishima/javabased-minidb',
+    repoUrl: 'https://github.com/Rishi-Mishima/java-miniDB',
     tagline: 'A lightweight relational database engine implemented in Java, supporting basic SQL operations, indexing, and transaction management.',
     impact:
       'Built a functional mini database engine demonstrating core database concepts and operations, showcasing understanding of data storage, indexing, and query processing.',
@@ -131,7 +158,7 @@ export const experience = [
     role: 'University Research Assistant',
     company: 'University of Sydney',
     summary:
-    'Developed a Python-based data analysis pipeline for MRI contrast agent research using Pandas, NumPy, and Matplotlib, enabling efficient processing and visualisation of large datasets.',
+      'Developed a Python-based data analysis pipeline for MRI contrast agent research using Pandas, NumPy, and Matplotlib, enabling efficient processing and visualisation of large datasets.',
     achievements: [
       'Extracted and analyzed nanoparticle relaxivity data from biomedical literature, identifying key factors influencing MRI performance',
       'Automated data extraction and analysis processes, reducing manual effort by 50% and accelerating research insights',
