@@ -336,6 +336,11 @@ select {
     position: relative;
   }
 
+  .hero-shell > * {
+    position: relative;
+    z-index: 1;
+  }
+
   .hero-shell::before {
     content: "";
     position: absolute;
@@ -358,6 +363,24 @@ select {
 
   .hero-status-block {
     @apply rounded-[1.2rem] border border-zinc-900/90 bg-black/38 px-4 py-4;
+  }
+
+  .hero-background {
+    @apply relative z-10 max-w-3xl rounded-[1.4rem] border border-lime-300/14 bg-black/35 px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)];
+  }
+
+  .hero-background::before {
+    content: "";
+    @apply absolute inset-y-5 left-0 w-px bg-lime-300/45;
+    box-shadow: 0 0 18px rgba(163, 230, 53, 0.22);
+  }
+
+  .hero-background__label {
+    @apply mb-3 text-[10px] uppercase tracking-[0.32em] text-lime-200;
+  }
+
+  .hero-background__copy {
+    @apply text-sm leading-8 text-zinc-400 sm:text-base;
   }
 
   .hero-action {
@@ -667,6 +690,23 @@ body.theme-daylight .section-shell::after {
 
 body.theme-daylight .hero-status-block {
   @apply border-stone-300/80 bg-white/58;
+}
+
+body.theme-daylight .hero-background {
+  @apply border-emerald-700/20 bg-white/62;
+}
+
+body.theme-daylight .hero-background::before {
+  @apply bg-emerald-700/45;
+  box-shadow: 0 0 16px rgba(15, 118, 110, 0.14);
+}
+
+body.theme-daylight .hero-background__label {
+  @apply text-emerald-900;
+}
+
+body.theme-daylight .hero-background__copy {
+  @apply text-stone-600;
 }
 
 @keyframes about-quote-drift {

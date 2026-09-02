@@ -19,6 +19,9 @@ export const hero = {
   intro:
     //'I design and ship full-stack software with a bias for clean interfaces, measurable outcomes, and infrastructure that does not become the team\'s next problem.',
     'I am a full-stack Java-focused Software Engineer building backend systems, AI agents and RAG applications, with hands-on experience in database internals and system design.',
+  background:
+    'With a background in Biomedical Engineering, I also bring experience in biosignal processing, embedded systems, and medical device development, including Arduino/MATLAB-based prototyping, risk analysis, verification and validation, along with familiarity with medical device quality and risk-management frameworks such as ISO 13485 and ISO 14971.',
+
   commandLines: [
     '$ whoami',
     'software-engineer --focus java-backend, ai-agents, rag and more',

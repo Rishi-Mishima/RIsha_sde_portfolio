@@ -5,21 +5,21 @@ function HeroSection({ hero, siteMeta, theme }) {
   const isDaylight = theme === 'daylight'
   const [typedTitle, setTypedTitle] = useState(hero.title.slice(0, 1))
 
-useEffect(() => {
-  let frame = 0
+  useEffect(() => {
+    let frame = 0
 
-  const timer = setInterval(() => {
-    frame++
+    const timer = setInterval(() => {
+      frame++
 
-    setTypedTitle(hero.title.slice(0, frame))
+      setTypedTitle(hero.title.slice(0, frame))
 
-    if (frame >= hero.title.length) {
-      clearInterval(timer)
-    }
-  }, 80)
+      if (frame >= hero.title.length) {
+        clearInterval(timer)
+      }
+    }, 80)
 
-  return () => clearInterval(timer)
-}, [hero.title])
+    return () => clearInterval(timer)
+  }, [hero.title])
 
 
   return (
@@ -41,6 +41,13 @@ useEffect(() => {
             <p className="max-w-3xl text-base leading-8 text-zinc-400 sm:text-lg sm:leading-9">
               {hero.intro}
             </p>
+
+            {hero.background ? (
+              <section className="hero-background" aria-label="Engineering background">
+                <p className="hero-background__label">background</p>
+                <p className="hero-background__copy">{hero.background}</p>
+              </section>
+            ) : null}
           </div>
 
           <TerminalWindow title="hero/status" className="terminal-fade" contentClassName="space-y-5">
