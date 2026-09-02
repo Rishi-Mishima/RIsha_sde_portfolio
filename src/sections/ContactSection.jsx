@@ -1,7 +1,7 @@
 import SectionHeading from '../components/SectionHeading'
 import TerminalWindow from '../components/TerminalWindow'
 
-function ContactSection({ contacts, siteMeta }) {
+function ContactSection({ contacts }) {
   return (
     <section id="contact" className="section-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-14">
       <SectionHeading

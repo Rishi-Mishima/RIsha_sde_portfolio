@@ -207,7 +207,7 @@ function App() {
                 <SkillsSection skills={skills} />
                 <ProjectsSection projects={projects} />
                 <ExperienceSection experience={experience} />
-                <ContactSection contacts={contacts} siteMeta={siteMeta} />
+                <ContactSection contacts={contacts} />
               </div>
             </div>
           </div>

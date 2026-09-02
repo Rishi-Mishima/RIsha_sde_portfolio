@@ -1,9 +1,47 @@
-import heroPortrait from '../assets/hero.png'
+import { useState } from 'react'
+import profileImageOne from '../assets/profile/profile-1.jpg'
+import profileImageTwo from '../assets/profile/profile-2.jpg'
+import profileImageThree from '../assets/profile/profile-3.jpg'
+import profileImageFour from '../assets/profile/profile-4.jpg'
 import AsciiDivider from '../components/AsciiDivider'
 import SectionHeading from '../components/SectionHeading'
 import TerminalWindow from '../components/TerminalWindow'
 
+const profileImages = [
+  {
+    src: profileImageOne,
+    alt: 'Profile image frame 1',
+  },
+  {
+    src: profileImageTwo,
+    alt: 'Profile image frame 2',
+  },
+  {
+    src: profileImageThree,
+    alt: 'Profile image frame 3',
+  },
+  {
+    src: profileImageFour,
+    alt: 'Profile image frame 4',
+  },
+]
+
 function AboutSection({ about, hero }) {
+  const [profileImageIndex, setProfileImageIndex] = useState(0)
+  const activeProfileImage = profileImages[profileImageIndex]
+
+  const showPreviousProfileImage = () => {
+    setProfileImageIndex((currentIndex) =>
+      currentIndex === 0 ? profileImages.length - 1 : currentIndex - 1,
+    )
+  }
+
+  const showNextProfileImage = () => {
+    setProfileImageIndex((currentIndex) =>
+      currentIndex === profileImages.length - 1 ? 0 : currentIndex + 1,
+    )
+  }
+
   return (
     <section id="about" className="section-shell space-y-10 sm:space-y-12">
       <SectionHeading
@@ -21,12 +59,57 @@ function AboutSection({ about, hero }) {
                 <span>profile/image</span>
                 <span>reserved</span>
               </div>
-              <div className="profile-image-shell aspect-[4/5] pt-11">
-                <img
-                  src={heroPortrait}
-                  alt="Portrait placeholder for profile section"
-                  className="h-full w-full object-cover opacity-80 grayscale"
-                />
+              <div className="profile-image-shell aspect-[4/5]">
+                <div className="profile-viewer">
+                  <img
+                    src={activeProfileImage.src}
+                    alt={activeProfileImage.alt}
+                    className="profile-viewer__image"
+                  />
+
+                  <div className="profile-viewer__controls" aria-label="Profile image controls">
+                    <button
+                      type="button"
+                      className="profile-viewer__button"
+                      onClick={showPreviousProfileImage}
+                      aria-label="Show previous profile image"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4">
+                        <path
+                          d="M15 18 9 12l6-6"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+
+                    <span className="profile-viewer__count">
+                      {String(profileImageIndex + 1).padStart(2, '0')}/
+                      {String(profileImages.length).padStart(2, '0')}
+                    </span>
+
+                    <button
+                      type="button"
+                      className="profile-viewer__button"
+                      onClick={showNextProfileImage}
+                      aria-label="Show next profile image"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4">
+                        <path
+                          d="m9 18 6-6-6-6"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
